@@ -226,38 +226,58 @@ public class Lab4P1_TatianaGarcia {
     public static void Contains(String contenedor, String contenida)
     {
         String acum_c = "";
+        String resultado = contenida; 
         if (contenedor.length() < contenida.length())
         {
             System.out.println(">> El tamaño de la segunda cadena no puede ser mayor que el de la primera");
         }
-        else 
+        else ///Codigo
         {
-            for (int i = 0; i < contenedor.length()-1; i++)
+            for (int i = 0; i < contenida.length(); i++)
             {
-                char c = contenedor.charAt(i);
-                char e = contenedor.charAt(i+1);
+                char c = contenida.charAt(i);
                 
-                for (int j = i; j < contenida.length()-1; j++)
+                
+                for (int j = 0; j < contenedor.length(); j++)
                 {
-                    char d = contenida.charAt(j);
-                    char f = contenida.charAt(i+1);
-                    if ( d == c && e == f)
+                    char d = contenedor.charAt(j);
+                    
+                    
+                    if (c == d)
                     {
-                        acum_c += d;
-                    }
-                    else if (j == contenida.length())
-                    {
-                        if (d == c)
+                        if (j < contenedor.length()-1 && i < contenida.length()-1)
                         {
-                            acum_c += d;
+                            char a = contenida.charAt(i+1);
+                            char b = contenedor.charAt(j+1);
+                            
+                            if (a == b)
+                            {
+                                acum_c += c;
+                            }
+                            
+                            
                         }
+                        
+                        
+                        
+                        
                     }
+                    
+                    
+                 
                 }
-                
-                
+                if (i == contenida.length()-1)
+                            {
+                                acum_c += c;
+                            }
+ 
             }
+            
+            
+             
         }
-        if (acum_c == contenida)
+        
+        if (acum_c.equals(resultado))
         {
             System.out.println(">> La cadena "+contenedor+" contiene a la cadena "+contenida);
         }
@@ -279,7 +299,7 @@ public class Lab4P1_TatianaGarcia {
             
             if (ASCII <= 97 || ASCII >= 122)
             {
-                System.out.println(">> La cadena contiene caracteres que no son letras");
+                
                 valid = false; 
             }
             
@@ -291,7 +311,7 @@ public class Lab4P1_TatianaGarcia {
         }
         else 
         {
-            
+            System.out.println(">> La cadena contiene caracteres que no son letras");
         }
           
     }//Fin del metodo
